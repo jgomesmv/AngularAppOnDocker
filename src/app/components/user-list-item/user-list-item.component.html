@@ -1,0 +1,23 @@
+<section *ngIf="mode === viewModes.view" class="c-userListItem__body">
+  <div class="c-userListItem__name">{{user.name}}</div>
+  <div class="c-userListItem__buttons">
+    <a
+      class="c-userListItem__button"
+      (click)=onEdit()>
+      Edit
+    </a>
+    <a
+      class="c-userListItem__button"
+      (click)=onDelete()>
+      Delete
+    </a>
+  </div>
+</section>
+
+<user-form
+  *ngIf="mode !== viewModes.view"
+  class="c-userListItem__form"
+  [user]=user
+  [mode]=mode
+  (userSubmited)=onUserUpdated($event)>
+</user-form>

@@ -1,0 +1,12 @@
+#Docker compose version we will use
+version: "3.7"
+
+#In docker compose services manage the containers we will create and remove
+services:
+  users_manager_ui:
+    container_name: users-manager-spa-container
+    build:
+      context: .
+      dockerfile: build.dockerfile
+    ports:
+      - "8888:80"
